@@ -1,23 +1,76 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Product Video Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <h1>AI Product Video Generator</h1>
+        <header>
+            <h1>🎬 AI Product Video Generator</h1>
+            <p class="subtitle">Create stunning transition videos between product images</p>
+        </header>
 
-      <input type="file" id="startImage" />
-      <input type="file" id="endImage" />
+        <main>
+            <div class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-box" id="uploadBox1">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-label">Upload Initial Image</p>
+                        <p class="upload-hint">JPG or PNG (supports up to 10MB)</p>
+                        <input type="file" id="initialImage" accept="image/jpeg,image/png" hidden>
+                    </div>
+                    <div id="preview1" class="preview-container"></div>
+                </div>
 
-      <button onclick="generateVideo()">Generate Video</button>
+                <div class="arrow">→</div>
 
-      <div id="loader" class="hidden">Generating...</div>
+                <div class="upload-card">
+                    <div class="upload-box" id="uploadBox2">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-label">Upload Final Image</p>
+                        <p class="upload-hint">JPG or PNG (supports up to 10MB)</p>
+                        <input type="file" id="finalImage" accept="image/jpeg,image/png" hidden>
+                    </div>
+                    <div id="preview2" class="preview-container"></div>
+                </div>
+            </div>
 
-      <video id="video" controls class="hidden"></video>
+            <div class="button-section">
+                <button id="generateBtn" class="btn btn-primary" disabled>
+                    <span class="btn-text">Generate Video</span>
+                    <span class="btn-spinner"></span>
+                </button>
+                <button id="downloadBtn" class="btn btn-secondary" style="display: none;">
+                    Download Video
+                </button>
+            </div>
+
+            <div id="statusMessage" class="status-message"></div>
+
+            <div id="videoPreview" class="video-preview" style="display: none;">
+                <h2>Generated Video</h2>
+                <video id="video" width="100%" controls style="border-radius: 8px;">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 AI Product Video Generator | Using FastAPI + MoviePy</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
