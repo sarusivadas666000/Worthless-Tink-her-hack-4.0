@@ -5,6 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent
 UPLOAD_DIR = BASE_DIR / "uploads"
 OUTPUT_DIR = BASE_DIR / "outputs"
 
-VIDEO_DURATION = 5  # seconds
+# Video settings
 FPS = 24
-FRAME_COUNT = VIDEO_DURATION * FPS
+FRAME_COUNT = 60  # Smooth transition frames
+VIDEO_DURATION = FRAME_COUNT / FPS
+
+# Image constraints
+MAX_IMAGE_SIZE = 10 * 1024 * 1024  # 10MB
+ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png"}
