@@ -126,6 +126,68 @@ main {
     align-items: center;
 }
 
+/* Effects Section */
+.effects-section {
+    background: #f8f9ff;
+    border: 2px solid #e0e5ff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.effects-section h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.effect-checkbox {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.effect-checkbox:hover {
+    background: #f0f2ff;
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.effect-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.effect-checkbox span {
+    display: flex;
+    flex-direction: column;
+}
+
+.effect-checkbox span strong {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.effect-checkbox small {
+    color: #999;
+    font-size: 0.85em;
+}
+
 @media (max-width: 768px) {
     .upload-section {
         flex-direction: column;
@@ -135,6 +197,10 @@ main {
     .arrow {
         transform: rotate(90deg);
         margin: 10px 0;
+    }
+
+    .effects-grid {
+        grid-template-columns: 1fr;
     }
 }
 

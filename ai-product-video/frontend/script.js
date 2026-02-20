@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Drag and drop
     setupDragAndDrop(uploadBox1, initialImageInput);
     setupDragAndDrop(uploadBox2, finalImageInput);
+    
+    // Load available effects from backend
+    loadAvailableEffects();
 });
 
 function setupDragAndDrop(box, input) {
@@ -109,6 +112,19 @@ function updateGenerateButton() {
     }
 }
 
+function getSelectedEffects() {
+    const effects = {};
+    const checkboxes = document.querySelectorAll('.effect-checkbox input[type="checkbox"]');
+    
+    checkboxes.forEach(checkbox => {
+        const parts = checkbox.id.split('effect');
+        const effectName = checkbox.value;
+        effects[effectName] = checkbox.checked;
+    });
+    
+    return effects;
+}
+
 async function generateVideo() {
     if (!initialImageFile || !finalImageFile) {
         showStatus('error', 'Please upload both images first.');
@@ -121,20 +137,38 @@ async function generateVideo() {
     downloadBtn.style.display = 'none';
     
     try {
-        showStatus('info', 'Generating video... Please wait (this may take a minute)');
+        // Get selected effects
+        const selectedEffects = getSelectedEffects();
+        const hasAnyEffect = Object.values(selectedEffects).some(val => val);
+        
+        if (!hasAnyEffect) {
+            showStatus('info', 'No effects selected. Using basic transition.');
+        }
+        
+        showStatus('info', 'Generating 3D video with cinematic effects... This may take 1-2 minutes');
         
         const formData = new FormData();
         formData.append('initial_image', initialImageFile);
         formData.append('final_image', finalImageFile);
         
-        const response = await fetch(`${API_URL}/generate-video`, {
+        // Add effects as JSON query parameter
+        const effectsJson = JSON.stringify(selectedEffects);
+        const url = `${API_URL}/generate-video?effects=${encodeURIComponent(effectsJson)}`;
+        
+        const response = await fetch(url, {
             method: 'POST',
             body: formData,
         });
         
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.detail || `HTTP Error: ${response.status}`);
+            let errorMessage = `HTTP Error: ${response.status}`;
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.detail || errorMessage;
+            } catch (e) {
+                // Ignore JSON parse errors
+            }
+            throw new Error(errorMessage);
         }
         
         generatedVideoBlob = await response.blob();
@@ -145,7 +179,7 @@ async function generateVideo() {
         videoPreview.style.display = 'block';
         downloadBtn.style.display = 'inline-block';
         
-        showStatus('success', 'Video generated successfully!');
+        showStatus('success', '3D video generated successfully! Ready to download.');
     } catch (error) {
         console.error('Error:', error);
         showStatus('error', `Failed to generate video: ${error.message}`);
@@ -164,7 +198,7 @@ function downloadVideo() {
     const url = URL.createObjectURL(generatedVideoBlob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'product_video.mp4';
+    link.download = 'product_video_3d.mp4';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -185,12 +219,26 @@ function showStatus(type, message) {
     }
 }
 
+// Load effects from backend
+async function loadAvailableEffects() {
+    try {
+        const response = await fetch(`${API_URL}/effects`);
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Available 3D effects:', data);
+        }
+    } catch (error) {
+        console.warn('Could not load effects from backend:', error);
+    }
+}
+
 // Check API connectivity on page load
 async function checkAPI() {
     try {
         const response = await fetch(`${API_URL}/health`);
         if (response.ok) {
-            console.log('✓ Backend API is connected');
+            const data = await response.json();
+            console.log('✓ Backend API connected:', data.service);
         }
     } catch (error) {
         console.warn('⚠ Backend API not accessible at', API_URL);
@@ -199,4 +247,5 @@ async function checkAPI() {
 }
 
 window.addEventListener('load', checkAPI);
+
 

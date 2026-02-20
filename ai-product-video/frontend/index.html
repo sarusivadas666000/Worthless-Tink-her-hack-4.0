@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Product Video Generator</title>
+    <title>AI 3D Product Video Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎬 AI Product Video Generator</h1>
-            <p class="subtitle">Create stunning transition videos between product images</p>
+            <h1>🎬 AI 3D Product Video Generator</h1>
+            <p class="subtitle">Create cinematic 3D transition videos with camera effects</p>
         </header>
 
         <main>
@@ -46,9 +46,50 @@
                 </div>
             </div>
 
+            <div class="effects-section">
+                <h3>✨ 3D Camera Effects</h3>
+                <div class="effects-grid">
+                    <label class="effect-checkbox">
+                        <input type="checkbox" id="effectZoom" value="zoom" checked>
+                        <span>🔍 Zoom/Dolly</span>
+                        <small>Camera moves forward and backward</small>
+                    </label>
+                    
+                    <label class="effect-checkbox">
+                        <input type="checkbox" id="effectPan" value="pan" checked>
+                        <span>↔️ Pan</span>
+                        <small>Camera moves left/right/up/down</small>
+                    </label>
+                    
+                    <label class="effect-checkbox">
+                        <input type="checkbox" id="effectPerspective" value="perspective" checked>
+                        <span>🎲 3D Perspective</span>
+                        <small>Tilts in 3D space</small>
+                    </label>
+                    
+                    <label class="effect-checkbox">
+                        <input type="checkbox" id="effectMotionBlur" value="motion_blur" checked>
+                        <span>💨 Motion Blur</span>
+                        <small>Cinematic smooth effect</small>
+                    </label>
+                    
+                    <label class="effect-checkbox">
+                        <input type="checkbox" id="effectRotation" value="rotation">
+                        <span>🔄 Full Rotation</span>
+                        <small>Complete 3D spin</small>
+                    </label>
+                    
+                    <label class="effect-checkbox">
+                        <input type="checkbox" id="effectDOF" value="depth_of_field">
+                        <span>👁️ Depth of Field</span>
+                        <small>Focus blur effect</small>
+                    </label>
+                </div>
+            </div>
+
             <div class="button-section">
                 <button id="generateBtn" class="btn btn-primary" disabled>
-                    <span class="btn-text">Generate Video</span>
+                    <span class="btn-text">Generate 3D Video</span>
                     <span class="btn-spinner"></span>
                 </button>
                 <button id="downloadBtn" class="btn btn-secondary" style="display: none;">
@@ -59,7 +100,7 @@
             <div id="statusMessage" class="status-message"></div>
 
             <div id="videoPreview" class="video-preview" style="display: none;">
-                <h2>Generated Video</h2>
+                <h2>Generated 3D Video</h2>
                 <video id="video" width="100%" controls style="border-radius: 8px;">
                     Your browser does not support the video tag.
                 </video>
@@ -67,7 +108,7 @@
         </main>
 
         <footer>
-            <p>© 2024 AI Product Video Generator | Using FastAPI + MoviePy</p>
+            <p>© 2024 AI 3D Product Video Generator | FastAPI + OpenCV + MoviePy</p>
         </footer>
     </div>
 
