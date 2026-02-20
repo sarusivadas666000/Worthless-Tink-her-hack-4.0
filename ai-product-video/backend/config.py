@@ -7,7 +7,7 @@ OUTPUT_DIR = BASE_DIR / "outputs"
 
 # Video settings
 FPS = 24
-FRAME_COUNT = 60  # Smooth transition frames
+FRAME_COUNT = 120  # Smooth transition frames (5 seconds at 24 FPS)
 VIDEO_DURATION = FRAME_COUNT / FPS
 
 # Image constraints
