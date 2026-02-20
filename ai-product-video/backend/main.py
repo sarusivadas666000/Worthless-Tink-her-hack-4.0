@@ -4,7 +4,7 @@ from fastapi.responses import FileResponse
 from pathlib import Path
 import uuid
 
-from backend.config import UPLOAD_DIR, OUTPUT_DIR
+from config import UPLOAD_DIR, OUTPUT_DIR
 from backend.utils.file_manager import (
     create_directories,
     save_upload_file,
