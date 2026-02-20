@@ -68,7 +68,9 @@ async def get_available_effects():
 async def generate_video(
     initial_image: UploadFile = File(...),
     final_image: UploadFile = File(...),
-    effects: str = Query(None, description="JSON string with effect settings")
+    effects: str = Query(None, description="JSON string with effect settings"),
+    provider: str = Query(None, description="Optional external provider: openai, runway, luma, pika, or external"),
+    prompt: str = Query(None, description="Optional text prompt to guide external image->video generation")
 ):
     """
     Generate a cinematic 3D transition video between two product images.
@@ -123,11 +125,18 @@ async def generate_video(
         await save_upload_file(initial_image, img1_path)
         await save_upload_file(final_image, img2_path)
         
-        # Generate video with 3D effects
-        logger.info(f"Generating 3D video with effects: {list(video_effects.keys())} for job {job_id}")
-        video_path = process_images_to_video(
-            img1_path, img2_path, temp_frames, output_video, effects=video_effects
-        )
+        # If an external provider is requested, delegate generation
+        if provider:
+            logger.info(f"Generating video using external provider={provider} prompt={'present' if prompt else 'none'} for job {job_id}")
+            video_path = process_images_to_video(
+                img1_path, img2_path, temp_frames, output_video, effects=video_effects, provider=provider, prompt=prompt
+            )
+        else:
+            # Generate video locally with 3D effects
+            logger.info(f"Generating 3D video with effects: {list(video_effects.keys())} for job {job_id}")
+            video_path = process_images_to_video(
+                img1_path, img2_path, temp_frames, output_video, effects=video_effects
+            )
         
         logger.info(f"3D Video generation completed for job {job_id}")
         
