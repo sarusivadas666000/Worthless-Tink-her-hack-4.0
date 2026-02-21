@@ -268,14 +268,6 @@ DEFAULT_3D_EFFECTS = {...}    # Default effect settings
 
 This project is provided as-is for educational and commercial use.
 
-## 🤝 Contributing
 
-Feel free to fork, modify, and improve this project!
-
-## 📞 Support
-
-For issues or questions, check the console logs for detailed error messages and API responses.
-
----
 
 **Happy video generating! 🎬✨**
