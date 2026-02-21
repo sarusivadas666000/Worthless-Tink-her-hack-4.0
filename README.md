@@ -126,29 +126,37 @@ Not applicable
 <img width="1743" height="969" alt="Screenshot 2026-02-21 061802" src="https://github.com/user-attachments/assets/5eb53b2f-7d2d-4787-8533-48849de96279" />
 Web Interface
 
+
 2.
 <img width="1232" height="919" alt="Screenshot 2026-02-21 061911" src="https://github.com/user-attachments/assets/30c8f2e5-b5d6-4c4c-9ffa-688cba6929ef" />
 Uploading of photo
 
-3.
+
+4.
 _<img width="1284" height="969" alt="Screenshot 2026-02-21 062138" src="https://github.com/user-attachments/assets/c6b0de49-2ce9-4660-b041-33628ee48eef" />
 Generating video
 
-4.
+
+5.
 <img width="1300" height="895" alt="Screenshot 2026-02-21 062214" src="https://github.com/user-attachments/assets/28cbfa6e-6c6d-4b5c-9358-07551924503c" />
 Generated Video with Download option
 
 #### Diagrams
 
+
 **System Architecture:**
 
-![Architecture Diagram](docs/architecture.png)
-_Explain your system architecture - components, data flow, tech stack interaction_
+<img width="2816" height="1536" alt="systemarch" src="https://github.com/user-attachments/assets/6f6b2ec1-11f8-49ad-ac15-7bbdaef7109f" />
+The AI 3D Product Video Generator follows a client–server architecture with a clearly separated frontend, backend processing pipeline, and local storage layer.
+
+The system follows a client–server architecture where the frontend (HTML, CSS, and Vanilla JavaScript) handles user interaction and sends image data to the FastAPI backend via REST APIs. The backend orchestrates the processing pipeline by validating inputs, generating 60 transition frames using OpenCV, NumPy, and Pillow, and compiling them into an MP4 video using MoviePy (H.264 encoding). Temporary files are managed through a file manager module with automatic cleanup. The final 1080x1080 cinematic video is then returned to the user for preview and download.
+
 
 **Application Workflow:**
 
-![Workflow](docs/workflow.png)
-_Add caption explaining your workflow_
+<img width="2816" height="1536" alt="workdia" src="https://github.com/user-attachments/assets/4f9b186a-26bc-4ec4-948f-995b27eaf0f8" />
+
+The workflow begins with the user uploading product images via the frontend interface. The client sends a multipart request to the FastAPI backend, which validates the inputs, generates 60 3D transition frames, and compiles them into an MP4 video. Finally, the server cleans up the temporary files and returns the downloadable video file to the user.
 
 ---
 
@@ -220,8 +228,6 @@ Not applicable
 }
 ```
 
-[Add more endpoints as needed...]
-
 ---
 
 ### For Mobile Apps: 
@@ -234,7 +240,8 @@ Not applicable
 
 ### Video
 
-[Add your demo video link here - YouTube, Google Drive, etc.]
+
+https://drive.google.com/file/d/1hnpqt7kXdEI8Amgvyg1oVIH7zGGI9FHf/view?usp=sharing
 
 The demo showcases uploading two product images, selecting 3D cinematic effects, generating a transition video, and downloading the final MP4 output.
 
@@ -252,27 +259,37 @@ If you used AI tools during development, document them here for transparency:
 **Tool Used:** ChatGPT
 
 **Purpose:**
+
 -Assistance in FastAPI structure setup
+
 -Debugging OpenCV transformations
+
 -Improving motion blur and depth of field logic
+
 -Documentation formatting
 
 
 
 **Key Prompts Used:**
 
-- "Create a FastAPI endpoint for video generation"
--"Implement 3D perspective transform using OpenCV"
---"Optimize MoviePy encoding performance"
+-Create a FastAPI endpoint for video generation
+
+-Implement 3D perspective transform using OpenCV
+
+-Optimize MoviePy encoding performance"
 
 **Percentage of AI-generated code:** 30–40%
 
 **Human Contributions:**
 
 -Core architecture design
+
 -3D transformation logic implementation
+
 -Frame generation pipeline
+
 -Frontend UI and user interaction logic
+
 -Performance optimization and testing
 
 
