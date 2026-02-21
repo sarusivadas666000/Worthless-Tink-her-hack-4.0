@@ -3,7 +3,7 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# 🎬 AI 3D Product Video Generator 🎯
 
 ## Basic Details
 
@@ -11,8 +11,8 @@
 
 ### Team Members
 
-- Member 1: [Saru S] - [ICCS College of Engineering and Management, Mupliyam, Thrissur]
-- Member 2: [STINY N S] - [ICCS College of Engineering and Management, Mupliyam, Thrissur]
+- Member 1: Saru S - ICCS College of Engineering and Management, Mupliyam, Thrissur
+- Member 2: STINY N S - ICCS College of Engineering and Management, Mupliyam, Thrissur
 
 ### Hosted Project Link
 
@@ -20,15 +20,16 @@
 
 ### Project Description
 
-[2-3 lines about what your project does]
+AI 3D Product Video Generator is a professional web application that creates cinematic 3D transition videos between two product images. It applies advanced camera movements, depth effects, motion blur, and perspective transformations to generate smooth, high-quality MP4 videos.
 
 ### The Problem statement
 
-[What problem are you solving?]
-
+Creating engaging product promo videos requires advanced video editing skills, expensive software, and significant time. Small businesses and creators struggle to produce cinematic product transitions quickly and affordably.
 ### The Solution
 
-[How are you solving it?]
+How are you solving it?
+Our application automates product video creation using AI-powered 3D transformations. Users upload two images, select cinematic effects, and the system generates a smooth 3D transition video with professional camera movements and visual effects.
+
 
 ---
 
@@ -38,16 +39,16 @@
 
 **For Software:**
 
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: Python, JavaScript, HTML, CSS
+-Frameworks used: FastAPI
+-Libraries used: OpenCV, MoviePy, Pillow, NumPy
+-Tools used: Uvicorn, VS Code, Virtual Environment (venv), Python HTTP Server
 
 **For Hardware:**
 
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Main components: Not applicable (Software-only project)
+- Specifications:Runs on Python 3.11+ system
+- Tools required: System with moderate processing capability (GPU recommended)
 
 ---
 
@@ -55,10 +56,17 @@
 
 List the key features of your project:
 
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+-3D Camera Effects: Zoom, Pan, Full Rotation, Perspective tilt
+
+-Cinematic Enhancements: Motion Blur, Depth of Field, Chromatic Aberration
+
+-Smooth Alpha Blending between product images
+
+-60-frame transition at 24 FPS with H.264 MP4 output
+
+-Drag & Drop image upload with live preview
+
+-One-click video generation and download
 
 ---
 
@@ -69,24 +77,42 @@ List the key features of your project:
 #### Installation
 
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+# Create virtual environment
+python -m venv .venv
+
+# Activate environment (Windows PowerShell)
+.\.venv\Scripts\Activate.ps1
+
+# Install dependencies
+cd backend
+pip install -r requirements.txt
 ```
 
 #### Run
 
 ```bash
-[Run commands - e.g., npm start, python app.py]
+# Start Backend
+cd backend
+python -m uvicorn main:app --reload
+
+# Start Frontend
+cd frontend
+python -m http.server 3000
 ```
+Backend runs at: http://127.0.0.1:8000
+
+Frontend runs at: http://127.0.0.1:3000
+
 
 ### For Hardware:
 
 #### Components Required
 
-[List all components needed with specifications]
+Not applicable (Software-based system)
 
 #### Circuit Setup
 
-[Explain how to set up the circuit]
+Not applicable
 
 ---
 
@@ -121,26 +147,15 @@ _Add caption explaining your workflow_
 
 ### For Hardware:
 
+Not applicable
+
 #### Schematic & Circuit
 
-![Circuit](Add your circuit diagram here)
-_Add caption explaining connections_
-
-![Schematic](Add your schematic diagram here)
-_Add caption explaining the schematic_
+Not applicable
 
 #### Build Photos
 
-![Team](Add photo of your team here)
-
-![Components](Add photo of your components here)
-_List out all components shown_
-
-![Build](Add photos of build process here)
-_Explain the build steps_
-
-![Final](Add photo of final product here)
-_Explain the final build_
+Not applicable
 
 ---
 
@@ -150,38 +165,46 @@ _Explain the final build_
 
 #### API Documentation
 
-**Base URL:** `https://api.yourproject.com`
+**Base URL:** `(http://127.0.0.1:8000)`
 
 ##### Endpoints
 
-**GET /api/endpoint**
+**GET /health**
 
-- **Description:** [What it does]
+- **Description:** Checks if backend service is running
+- **Response:**
+
+```json
+{
+  "status": "ok",
+  "service": "AI Product Video Generator 3D",
+  "features": ["3D perspective", "camera zoom", "camera pan", "motion blur"]
+}
+```
+
+**GET /effects**
+
+- **Description:** Returns available 3D effects with descriptions
+
+ **POST /generate-video**
+- **Description:** Generates cinematic 3D transition video
+- **Content-Type:** multipart/form-data
 - **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-
+  - `initial_image` (File - JPG/PNG)
+  - `final_image` (File - JPG/PNG)
+  -  `effects` (JSON string - optional): [Description]
+  -  
 ```json
 {
-  "status": "success",
-  "data": {}
+  "zoom": true,
+  "pan": true,
+  "rotation": false,
+  "perspective": true,
+  "motion_blur": true
 }
 ```
 
-**POST /api/endpoint**
-
-- **Description:** [What it does]
-- **Request Body:**
-
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-
-- **Response:**
+- **Response:** MP4 Video File
 
 ```json
 {
@@ -194,203 +217,11 @@ _Explain the final build_
 
 ---
 
-### For Mobile Apps:
-
-#### App Flow Diagram
-
-![App Flow](docs/app-flow.png)
-_Explain the user flow through your application_
-
-#### Installation Guide
-
-**For Android (APK):**
-
-1. Download the APK from [Release Link]
-2. Enable "Install from Unknown Sources" in your device settings:
-   - Go to Settings > Security
-   - Enable "Unknown Sources"
-3. Open the downloaded APK file
-4. Follow the installation prompts
-5. Open the app and enjoy!
-
-**For iOS (IPA) - TestFlight:**
-
-1. Download TestFlight from the App Store
-2. Open this TestFlight link: [Your TestFlight Link]
-3. Click "Install" or "Accept"
-4. Wait for the app to install
-5. Open the app from your home screen
-
-**Building from Source:**
-
-```bash
-# For Android
-flutter build apk
-# or
-./gradlew assembleDebug
-
-# For iOS
-flutter build ios
-# or
-xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
-```
+### For Mobile Apps: 
+Not applicable
 
 ---
 
-### For Hardware Projects:
-
-#### Bill of Materials (BOM)
-
-| Component     | Quantity | Specifications    | Price   | Link/Source |
-| ------------- | -------- | ----------------- | ------- | ----------- |
-| Arduino Uno   | 1        | ATmega328P, 16MHz | ₹450    | [Link]      |
-| LED           | 5        | Red, 5mm, 20mA    | ₹5 each | [Link]      |
-| Resistor      | 5        | 220Ω, 1/4W        | ₹1 each | [Link]      |
-| Breadboard    | 1        | 830 points        | ₹100    | [Link]      |
-| Jumper Wires  | 20       | Male-to-Male      | ₹50     | [Link]      |
-| [Add more...] |          |                   |         |             |
-
-**Total Estimated Cost:** ₹[Amount]
-
-#### Assembly Instructions
-
-**Step 1: Prepare Components**
-
-1. Gather all components listed in the BOM
-2. Check component specifications
-3. Prepare your workspace
-   ![Step 1](images/assembly-step1.jpg)
-   _Caption: All components laid out_
-
-**Step 2: Build the Power Supply**
-
-1. Connect the power rails on the breadboard
-2. Connect Arduino 5V to breadboard positive rail
-3. Connect Arduino GND to breadboard negative rail
-   ![Step 2](images/assembly-step2.jpg)
-   _Caption: Power connections completed_
-
-**Step 3: Add Components**
-
-1. Place LEDs on breadboard
-2. Connect resistors in series with LEDs
-3. Connect LED cathodes to GND
-4. Connect LED anodes to Arduino digital pins (2-6)
-   ![Step 3](images/assembly-step3.jpg)
-   _Caption: LED circuit assembled_
-
-**Step 4: [Continue for all steps...]**
-
-**Final Assembly:**
-![Final Build](images/final-build.jpg)
-_Caption: Completed project ready for testing_
-
----
-
-### For Scripts/CLI Tools:
-
-#### Command Reference
-
-**Basic Usage:**
-
-```bash
-python script.py [options] [arguments]
-```
-
-**Available Commands:**
-
-- `command1 [args]` - Description of what command1 does
-- `command2 [args]` - Description of what command2 does
-- `command3 [args]` - Description of what command3 does
-
-**Options:**
-
-- `-h, --help` - Show help message and exit
-- `-v, --verbose` - Enable verbose output
-- `-o, --output FILE` - Specify output file path
-- `-c, --config FILE` - Specify configuration file
-- `--version` - Show version information
-
-**Examples:**
-
-```bash
-# Example 1: Basic usage
-python script.py input.txt
-
-# Example 2: With verbose output
-python script.py -v input.txt
-
-# Example 3: Specify output file
-python script.py -o output.txt input.txt
-
-# Example 4: Using configuration
-python script.py -c config.json --verbose input.txt
-```
-
-#### Demo Output
-
-**Example 1: Basic Processing**
-
-**Input:**
-
-```
-This is a sample input file
-with multiple lines of text
-for demonstration purposes
-```
-
-**Command:**
-
-```bash
-python script.py sample.txt
-```
-
-**Output:**
-
-```
-Processing: sample.txt
-Lines processed: 3
-Characters counted: 86
-Status: Success
-Output saved to: output.txt
-```
-
-**Example 2: Advanced Usage**
-
-**Input:**
-
-```json
-{
-  "name": "test",
-  "value": 123
-}
-```
-
-**Command:**
-
-```bash
-python script.py -v --format json data.json
-```
-
-**Output:**
-
-```
-[VERBOSE] Loading configuration...
-[VERBOSE] Parsing JSON input...
-[VERBOSE] Processing data...
-{
-  "status": "success",
-  "processed": true,
-  "result": {
-    "name": "test",
-    "value": 123,
-    "timestamp": "2024-02-07T10:30:00"
-  }
-}
-[VERBOSE] Operation completed in 0.23s
-```
-
----
 
 ## Project Demo
 
@@ -398,11 +229,12 @@ python script.py -v --format json data.json
 
 [Add your demo video link here - YouTube, Google Drive, etc.]
 
-_Explain what the video demonstrates - key features, user flow, technical highlights_
+The demo showcases uploading two product images, selecting 3D cinematic effects, generating a transition video, and downloading the final MP4 output.
 
 ### Additional Demos
 
-[Add any extra demo materials/links - Live site, APK download, online demo, etc.]
+-Local deployment demo
+-Backend API testing via browser/Postman
 
 ---
 
@@ -410,44 +242,45 @@ _Explain what the video demonstrates - key features, user flow, technical highli
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** ChatGPT
 
-**Purpose:** [What you used it for]
+**Purpose:**
+-Assistance in FastAPI structure setup
+-Debugging OpenCV transformations
+-Improving motion blur and depth of field logic
+-Documentation formatting
 
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+
 
 **Key Prompts Used:**
 
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
+- "Create a FastAPI endpoint for video generation"
+-"Implement 3D perspective transform using OpenCV"
+--"Optimize MoviePy encoding performance"
 
-**Percentage of AI-generated code:** [Approximately X%]
+**Percentage of AI-generated code:** 30–40%
 
 **Human Contributions:**
 
-- Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
-- UI/UX design decisions
+-Core architecture design
+-3D transformation logic implementation
+-Frame generation pipeline
+-Frontend UI and user interaction logic
+-Performance optimization and testing
 
-_Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!_
 
 ---
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- Saru S: Backend development, 3D frame generation, video encoding integration
+- STINY N S: Frontend development, UI design, API integration, testing & documentation
 
 ---
 
 ## License
 
-This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License – see the LICENSE file for details..
 
 **Common License Options:**
 
