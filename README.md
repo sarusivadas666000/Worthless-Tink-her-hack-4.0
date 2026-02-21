@@ -7,12 +7,12 @@
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [Worthless]
 
 ### Team Members
 
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [Saru S] - [ICCS College of Engineering and Management, Mupliyam, Thrissur]
+- Member 2: [STINY N S] - [ICCS College of Engineering and Management, Mupliyam, Thrissur]
 
 ### Hosted Project Link
 
