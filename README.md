@@ -7,7 +7,7 @@
 
 ## Basic Details
 
-### Team Name: [Worthless]
+### Team Name: Worthless
 
 ### Team Members
 
@@ -122,14 +122,21 @@ Not applicable
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-_Add caption explaining what this shows_
+1.
+<img width="1743" height="969" alt="Screenshot 2026-02-21 061802" src="https://github.com/user-attachments/assets/5eb53b2f-7d2d-4787-8533-48849de96279" />
+Web Interface
 
-![Screenshot2](Add screenshot 2 here with proper name)
-_Add caption explaining what this shows_
+2.
+<img width="1232" height="919" alt="Screenshot 2026-02-21 061911" src="https://github.com/user-attachments/assets/30c8f2e5-b5d6-4c4c-9ffa-688cba6929ef" />
+Uploading of photo
 
-![Screenshot3](Add screenshot 3 here with proper name)
-_Add caption explaining what this shows_
+3.
+_<img width="1284" height="969" alt="Screenshot 2026-02-21 062138" src="https://github.com/user-attachments/assets/c6b0de49-2ce9-4660-b041-33628ee48eef" />
+Generating video
+
+4.
+<img width="1300" height="895" alt="Screenshot 2026-02-21 062214" src="https://github.com/user-attachments/assets/28cbfa6e-6c6d-4b5c-9358-07551924503c" />
+Generated Video with Download option
 
 #### Diagrams
 
