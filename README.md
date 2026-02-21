@@ -1,6 +1,6 @@
 # Worthless-Tink-her-hack-4.0<p align="center">
 
-  <img src="./img.png" alt="Project Banner" width="100%">
+<img width="1280" height="640" alt="img" src="https://github.com/user-attachments/assets/b66408fa-3855-49a3-9649-4498a46d1865" />
 </p>
 
 # 🎬 AI 3D Product Video Generator 🎯
@@ -11,7 +11,7 @@
 
 ### Team Members
 
-- Member 1: Saru S - ICCS College of Engineering and Management, Mupliyam, Thrissur
+- Member 1: SARU S - ICCS College of Engineering and Management, Mupliyam, Thrissur
 - Member 2: STINY N S - ICCS College of Engineering and Management, Mupliyam, Thrissur
 
 ### Hosted Project Link
@@ -122,23 +122,19 @@ Not applicable
 
 #### Screenshots (Add at least 3)
 
-1.
-<img width="1743" height="969" alt="Screenshot 2026-02-21 061802" src="https://github.com/user-attachments/assets/5eb53b2f-7d2d-4787-8533-48849de96279" />
+1.<img width="1743" height="969" alt="Screenshot 2026-02-21 061802" src="https://github.com/user-attachments/assets/5eb53b2f-7d2d-4787-8533-48849de96279" />
 Web Interface
 
 
-2.
-<img width="1232" height="919" alt="Screenshot 2026-02-21 061911" src="https://github.com/user-attachments/assets/30c8f2e5-b5d6-4c4c-9ffa-688cba6929ef" />
+2.<img width="1232" height="919" alt="Screenshot 2026-02-21 061911" src="https://github.com/user-attachments/assets/30c8f2e5-b5d6-4c4c-9ffa-688cba6929ef" />
 Uploading of photo
 
 
-4.
-_<img width="1284" height="969" alt="Screenshot 2026-02-21 062138" src="https://github.com/user-attachments/assets/c6b0de49-2ce9-4660-b041-33628ee48eef" />
+4.<img width="1284" height="969" alt="Screenshot 2026-02-21 062138" src="https://github.com/user-attachments/assets/c6b0de49-2ce9-4660-b041-33628ee48eef" />
 Generating video
 
 
-5.
-<img width="1300" height="895" alt="Screenshot 2026-02-21 062214" src="https://github.com/user-attachments/assets/28cbfa6e-6c6d-4b5c-9358-07551924503c" />
+5.<img width="1300" height="895" alt="Screenshot 2026-02-21 062214" src="https://github.com/user-attachments/assets/28cbfa6e-6c6d-4b5c-9358-07551924503c" />
 Generated Video with Download option
 
 #### Diagrams
