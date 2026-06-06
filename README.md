@@ -1,26 +1,10 @@
-# Worthless-Tink-her-hack-4.0<p align="center">
 
-<img width="1280" height="640" alt="img" src="https://github.com/user-attachments/assets/b66408fa-3855-49a3-9649-4498a46d1865" />
-</p>
 
-# 🎬 AI 3D Product Video Generator 🎯
-
-## Basic Details
-
-### Team Name: Worthless
-
-### Team Members
-
-- Member 1: SARU S - ICCS College of Engineering and Management, Mupliyam, Thrissur
-- Member 2: STINY N S - ICCS College of Engineering and Management, Mupliyam, Thrissur
-
-### Hosted Project Link
-
-[mention your project hosted link here]
+# 🎬 AI 2D Product Video Generator 🎯
 
 ### Project Description
 
-AI 3D Product Video Generator is a professional web application that creates cinematic 3D transition videos between two product images. It applies advanced camera movements, depth effects, motion blur, and perspective transformations to generate smooth, high-quality MP4 videos.
+AI 2D Product Video Generator is a professional web application that creates cinematic 2D transition videos between two product images. It applies advanced camera movements, depth effects, motion blur, and perspective transformations to generate smooth, high-quality MP4 videos.
 
 ### The Problem statement
 
@@ -56,7 +40,7 @@ Our application automates product video creation using AI-powered 3D transformat
 
 List the key features of your project:
 
--3D Camera Effects: Zoom, Pan, Full Rotation, Perspective tilt
+-2D Camera Effects: Zoom, Pan, Full Rotation, Perspective tilt
 
 -Cinematic Enhancements: Motion Blur, Depth of Field, Chromatic Aberration
 
@@ -143,7 +127,7 @@ Generated Video with Download option
 **System Architecture:**
 
 <img width="2816" height="1536" alt="systemarch" src="https://github.com/user-attachments/assets/6f6b2ec1-11f8-49ad-ac15-7bbdaef7109f" />
-The AI 3D Product Video Generator follows a client–server architecture with a clearly separated frontend, backend processing pipeline, and local storage layer.
+The AI 2D Product Video Generator follows a client–server architecture with a clearly separated frontend, backend processing pipeline, and local storage layer.
 
 The system follows a client–server architecture where the frontend (HTML, CSS, and Vanilla JavaScript) handles user interaction and sends image data to the FastAPI backend via REST APIs. The backend orchestrates the processing pipeline by validating inputs, generating 60 transition frames using OpenCV, NumPy, and Pillow, and compiling them into an MP4 video using MoviePy (H.264 encoding). Temporary files are managed through a file manager module with automatic cleanup. The final 1080x1080 cinematic video is then returned to the user for preview and download.
 
@@ -152,7 +136,7 @@ The system follows a client–server architecture where the frontend (HTML, CSS,
 
 <img width="2816" height="1536" alt="workdia" src="https://github.com/user-attachments/assets/4f9b186a-26bc-4ec4-948f-995b27eaf0f8" />
 
-The workflow begins with the user uploading product images via the frontend interface. The client sends a multipart request to the FastAPI backend, which validates the inputs, generates 60 3D transition frames, and compiles them into an MP4 video. Finally, the server cleans up the temporary files and returns the downloadable video file to the user.
+The workflow begins with the user uploading product images via the frontend interface. The client sends a multipart request to the FastAPI backend, which validates the inputs, generates 60 2D transition frames, and compiles them into an MP4 video. Finally, the server cleans up the temporary files and returns the downloadable video file to the user.
 
 ---
 
